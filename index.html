@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tournament Hub</title>
+
+<style>
+    :root {
+    --bg: #0b0f14;
+    --panel: #121820;
+    --panel2: #161f2a;
+    --border: #223042;
+
+    --accent: #00e5ff;
+    --accent2: #00bcd4;
+
+    --text: #e6f1ff;
+    --muted: #93a4b8;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 200px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+/* BACKGROUND IMAGE */
+.header-bg {
+    position: absolute;
+    inset: 0;
+
+    background: url("Image2.jpg") center/cover no-repeat;
+
+    filter: blur(3px) brightness(0.9);
+    transform: scale(1.1);
+
+    z-index: 0;
+}
+
+/* DARK OVERLAY (boost readability) */
+.header-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.75)
+    );
+
+    z-index: 1;
+}
+
+/* TEXT LAYER */
+.header-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* TITLE */
+.header h1 {
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(0,229,255,0.3);
+    margin: 0;
+}
+
+/* SLOGAN */
+.slogan {
+    font-size: 18px;
+    color: var(--accent);
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+/* SPACE BETWEEN GROUPS */
+.spacer {
+    height: 14px;
+}
+
+/* STATUS LINE */
+.status {
+    font-size: 17px;
+    margin: 0;
+}
+
+/* ONLY "Estado" bold */
+.status b {
+    font-weight: 800;
+}
+
+/* CREDIT LINE */
+.credit {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* WRAPPER */
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.main {
+    width: 80%;
+    padding: 40px;
+}
+
+/* RIGHT SIDEBAR */
+.sidebar {
+    width: 20%;
+    padding: 30px;
+
+    background: var(--panel);
+    border-left: 1px solid var(--border);
+
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+/* HEADINGS */
+h1, h2 {
+    margin: 0;
+}
+
+h2 {
+    color: var(--accent2);
+    margin-bottom: 10px;
+}
+
+/* BRACKET */
+iframe {
+    width: 100%;
+    height: 600px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: 0 0 30px rgba(0,229,255,0.08);
+}
+
+/* DROPDOWNS */
+details {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+
+    margin-bottom: 15px;
+    border-radius: 12px;
+
+    overflow: hidden; /* IMPORTANT: keeps rounded corners clean */
+    transition: 0.2s ease;
+}
+
+/* HEADER / CLICKABLE AREA */
+summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+
+    color: var(--text);
+
+    padding: 15px;        /* FIX: makes full header clickable */
+    user-select: none;    /* prevents annoying text selection */
+
+    list-style: none;     /* removes default marker spacing */
+}
+
+/* CONTENT AREA INSIDE DROPDOWN */
+details > *:not(summary) {
+    padding: 0 15px 15px 15px;
+}
+
+/* HOVER EFFECT (now applies to full box correctly) */
+details:hover {
+    border-color: var(--accent2);
+    box-shadow: 0 0 12px rgba(0,229,255,0.08);
+}
+
+/* optional nicer hover on header itself */
+summary:hover {
+    background: #1b2533;
+    transition: 0.2s ease;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+
+    color: var(--text);
+}
+
+/* LINKS */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-shadow: 0 0 8px var(--accent);
+}
+
+/* SIDEBAR CONTACT ITEMS */
+.sidebar p {
+    background: var(--panel2);
+    padding: 10px;
+    border-radius: 8px;
+
+    border-left: 3px solid var(--accent);
+
+    margin-bottom: 10px;
+
+    color: var(--muted);
+}
+
+.sidebar b {
+    color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .main, .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+    <div class="header-bg"></div>
+    <div class="header-overlay"></div>
+
+    <div class="header-content">
+        <h1>DOTA 1 - TORNEO 1vs1 GameRanger</h1>
+
+        <p class="slogan">La Élite del DotA</p>
+
+        <div class="spacer"></div>
+
+        <p class="status"><b>Estado:</b> Inscripciones Abiertas</p>
+
+        <p class="credit">Brought to you by Apel</p>
+    </div>
+
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="main">
+
+        <!-- BRACKET -->
+        <div class="section">
+            <h2>Bracket</h2>
+            <iframe
+            src="https://challonge.com/qlnfb36y/module"
+            width="100%"
+            height="600"
+            frameborder="0"
+            scrolling="auto"
+            allowtransparency="true">
+        </iframe>
+        </div>
+
+        <!-- MATCH RECORDINGS -->
+        <details>
+            <summary>Ver los encuentros</summary>
+            <p>Todos los encuentros serán grabados y casteados en vivo en el canal de YouTube</p>
+            <p><a href="URL TODO" target="_blank">Encuentro 1</a></p>
+
+        </details>
+
+        <!-- INFO -->
+        <details>
+            <summary>Información General</summary>
+            <p>Plataforma: GameRanger</p>
+            <p>Versión de Juego: Warcraft III 1.26</p>
+            <p>Mapa: 6.83d MobaZ</p>
+            <p>Formato: Eliminación Directa</p>
+            <p>Encuentros: Mejor de 3 (Semifinales y Final: Mejor de 5)</p>
+            <p>Premio: Figura 3d de un personaje de WarcraftIII con la inscripción "Campeón Dota1 PvP GameRanger". 
+                La organización reserva el derecho a ofrecer un premio monetario si los jugadores presentan una actitud correcta para asegurar un buen torneo</p>
+        </details>
+
+        <!-- REGLAS -->
+        <details>
+            <summary>Reglas</summary>
+            <p>Solo ciertos heroes estarán disponibles para los encuentros: Invoker, Lina, Nevermore, Puck, Windrunner.
+                Si ambos jugadores llegan a un acuerdo, tienen la posibilidad de recomendar un heroe (en, o fuera de la lista) a la administración.
+            </p>
+            <p>Modo: -shomnp ; -noneutrals</p>
+            <p>Victoria: 2 kills o 1 torre</p>
+        </details>
+
+        <!-- SCHEDULE -->
+        <details>
+            <summary>Calendario</summary>
+            <p>(Las fechas están propensas a cambios basados en la actividad de inscripciones)</p>
+            <p>Abril 25: Inscripciones abiertas</p>
+            <p>Mayo 8: Sorteo de jugadores y publicación del Bracket</p>
+            <p>Fechas posteriores a definirse...</p>
+        </details>
+
+        <!-- RULES -->
+        <details>
+            <summary>Detalles Técnicos</summary>
+            <p>- Los host irán cambiando de acuerdo a la preferencia de los jugadores</p>
+            <p>- El horario de los encuentros será determinado por ambos jugadores, la administración facilitará herramientas para llegar a un acuerdo mutuo</p>
+            <p>- Todos los encuentros serán casteados y arbitrados en vivo, cualquier reclamo o petición se debe realizar acabada la partida y no durante la misma</p>
+            <p>- En caso de desconección, se reiniciará el juego si han pasado menos de 3 minutos y no han habido muertes. En otro caso, se contará como partida perdida</p>
+            <p>- El premio se dará al ganador únicamente si ha jugado al menos 2 encuentros (en caso de un bracket de 8) o 3 encuentros (en caso de un bracket de 16)</p>
+            <p>- En caso de detectarse cualquier tipo de cheat que presente una ventaja injusta, se descalificará al jugador automáticamente.
+                La organización se reserva el derecho a decidir si un programa es considerado injusto</p>
+            <p>- Quedan permitidos programas externos que faciliten la jugabilidad (hotkeys, quick-cast, auto-cast, health/mana bars, etc.).
+                Se insta a los jugadores a preguntar a la organización si un programa está permitido o no, para prevenir malentendidos
+            </p>
+            <p>- En el raro caso de tener un bug del mapa (heroe congelado, falta de respawn, etc.), o en caso caso de desconección del host, si éste no es parte del encuentro,
+                se reiniciará la partida
+            </p>
+            <p>- Cualquier consulta o duda no mencionada, contactar al organizador</p>
+        </details>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="sidebar">
+        <h2>Contacto</h2>
+
+        <p><b>Discord:</b> mixdg</p>
+        <p><b>WhatsApp:</b> +591 77147995</p>
+        <p><b>Grupo de WhatsApp:
+        <a class="wa-button" href="https://chat.whatsapp.com/J3OosZziZvtCZtFPJQFbwo" target="_blank">
+            WhatsApp Group
+        </a></b></p>
+    </div>
+
+</div>
+
+</body>
+</html>
