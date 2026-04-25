@@ -181,6 +181,8 @@ details {
     transition: 0.2s ease;
 }
 
+
+
 /* HEADER / CLICKABLE AREA */
 summary {
     cursor: pointer;
@@ -261,6 +263,24 @@ a:hover {
     }
 }
 
+.credits-bottom {
+    margin-top: 60px;
+
+    text-align: center;
+    font-size: 13px;
+
+    color: var(--muted);
+
+    opacity: 0.8;
+}
+
+/* optional: highlight names slightly */
+.credits-bottom b {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+
 </style>
 </head>
 
@@ -309,7 +329,7 @@ a:hover {
         <details>
             <summary>Ver los encuentros</summary>
             <p>Todos los encuentros serán grabados y casteados en vivo en el canal de YouTube</p>
-            <p><a href="URL TODO" target="_blank">Encuentro 1</a></p>
+            <p><a href="URL TODO" target="_blank">Encuentro #</a></p>
 
         </details>
 
@@ -338,9 +358,9 @@ a:hover {
         <!-- SCHEDULE -->
         <details>
             <summary>Calendario</summary>
-            <p>(Las fechas están propensas a cambios basados en la actividad de inscripciones)</p>
-            <p>Abril 25: Inscripciones abiertas</p>
-            <p>Mayo 8: Sorteo de jugadores y publicación del Bracket</p>
+            <p>Las fechas están propensas a cambios basados en la decisión de los participantes</p>
+            <p>- Abril 25: Inscripciones abiertas</p>
+            <p>- Mayo 8: Sorteo de jugadores y publicación del Bracket</p>
             <p>Fechas posteriores a definirse...</p>
         </details>
 
@@ -363,6 +383,9 @@ a:hover {
             <p>- Cualquier consulta o duda no mencionada, contactar al organizador</p>
         </details>
 
+        <div class="credits-bottom">
+            Agradecimientos especiales a <b>RACINGLOCURA</b> y <b>CastEEEE</b>
+        </div>
     </div>
 
     <!-- RIGHT SIDEBAR -->
@@ -370,10 +393,11 @@ a:hover {
         <h2>Contacto</h2>
 
         <p><b>Discord:</b> mixdg</p>
-        <p><b>WhatsApp:</b> +591 77147995</p>
-        <p><b>Grupo de WhatsApp:
-        <a class="wa-button" href="https://chat.whatsapp.com/J3OosZziZvtCZtFPJQFbwo" target="_blank">
-            WhatsApp Group
+        <p><b><a class="wa-button" href="https://chat.whatsapp.com/J3OosZziZvtCZtFPJQFbwo" target="_blank">
+            Grupo de WhatsApp
+        </a></b></p>
+        <p><b><a class="wa-button" href="https://www.youtube.com/@mix_dg" target="_blank">
+            Canal de YouTube
         </a></b></p>
     </div>
 
